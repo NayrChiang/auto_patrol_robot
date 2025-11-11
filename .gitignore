@@ -1,0 +1,48 @@
+# ROS 2 Workspace Build Directories
+autopatrol_ws/build/
+autopatrol_ws/install/
+autopatrol_ws/log/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Compiled files
+*.o
+*.a
+*.so
+*.dylib
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+
+# Colcon
+.colcon_install_layout
+
+# Keep media folder structure but allow images to be tracked
+# (Images in autopatrol_ws/media/ will be tracked by Git)
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
