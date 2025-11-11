@@ -7,14 +7,14 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 
 def generate_launch_description():
-    # 获取与拼接默认路径
+    # Get and construct default paths
     robot_navigation2_dir = get_package_share_directory(
         'robot_navigation2')
     nav2_bringup_dir = get_package_share_directory('nav2_bringup')
     rviz_config_dir = os.path.join(
         nav2_bringup_dir, 'rviz', 'nav2_default_view.rviz')
     
-    # 创建 Launch 配置
+    # Create Launch configurations
     use_sim_time = launch.substitutions.LaunchConfiguration(
         'use_sim_time', default='true')
     map_yaml_path = launch.substitutions.LaunchConfiguration(
@@ -23,7 +23,7 @@ def generate_launch_description():
         'params_file', default=os.path.join(robot_navigation2_dir, 'config', 'nav2_params.yaml'))
 
     return launch.LaunchDescription([
-        # 声明新的 Launch 参数
+        # Declare new Launch arguments
         launch.actions.DeclareLaunchArgument('use_sim_time', default_value=use_sim_time,
                                              description='Use simulation (Gazebo) clock if true'),
         launch.actions.DeclareLaunchArgument('map', default_value=map_yaml_path,
@@ -34,7 +34,7 @@ def generate_launch_description():
         launch.actions.IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [nav2_bringup_dir, '/launch', '/bringup_launch.py']),
-            # 使用 Launch 参数替换原有参数
+            # Use Launch arguments to replace original parameters
             launch_arguments={
                 'map': map_yaml_path,
                 'use_sim_time': use_sim_time,

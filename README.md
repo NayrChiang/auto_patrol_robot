@@ -289,4 +289,3 @@ This project is licensed under the Apache-2.0 License - see the LICENSE file for
 - ROS 2 Navigation2 team for the excellent navigation framework
 - Gazebo/Ignition team for the simulation platform
 - ROS 2 community for continuous support and improvements
-# auto_patrol_robot

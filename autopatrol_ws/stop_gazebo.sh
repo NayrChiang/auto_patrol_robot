@@ -1,17 +1,17 @@
 #!/bin/bash
 
-echo "🛑 停止 Gazebo..."
+echo "🛑 Stopping Gazebo..."
 
-# 停止所有 Gazebo 相关进程
+# Stop all Gazebo-related processes
 pkill -f "ign gazebo" 2>/dev/null
 pkill -f "ros2 launch" 2>/dev/null
 killall ign-gazebo-server 2>/dev/null
 killall ign-gazebo-gui 2>/dev/null
 
-# 等待进程停止
+# Wait for processes to stop
 sleep 1
 
-# 强制停止任何残留进程
+# Force kill any remaining processes
 ps aux | grep -E "(gazebo|ign.*gazebo)" | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null
 
-echo "✅ Gazebo 已停止"
+echo "✅ Gazebo stopped"
