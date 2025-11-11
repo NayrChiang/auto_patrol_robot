@@ -1,0 +1,23 @@
+[0.958s] Invoking command in '/home/nayr/auto_patrol_robot/autopatrol_ws/src/autopatrol_robot': PYTHONPATH=/home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/autopatrol_robot build --build-base /home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/build install --record /home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/install.log --single-version-externally-managed install_data
+[1.117s] running egg_info
+[1.117s] writing ../../build/autopatrol_robot/autopatrol_robot.egg-info/PKG-INFO
+[1.117s] writing dependency_links to ../../build/autopatrol_robot/autopatrol_robot.egg-info/dependency_links.txt
+[1.117s] writing entry points to ../../build/autopatrol_robot/autopatrol_robot.egg-info/entry_points.txt
+[1.117s] writing requirements to ../../build/autopatrol_robot/autopatrol_robot.egg-info/requires.txt
+[1.117s] writing top-level names to ../../build/autopatrol_robot/autopatrol_robot.egg-info/top_level.txt
+[1.119s] reading manifest file '../../build/autopatrol_robot/autopatrol_robot.egg-info/SOURCES.txt'
+[1.119s] adding license file 'LICENSE'
+[1.119s] writing manifest file '../../build/autopatrol_robot/autopatrol_robot.egg-info/SOURCES.txt'
+[1.128s] running build
+[1.128s] running build_py
+[1.128s] running install
+[1.128s] running install_lib
+[1.129s] running install_data
+[1.129s] running install_egg_info
+[1.130s] removing '/home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/python3.10/site-packages/autopatrol_robot-0.0.0-py3.10.egg-info' (and everything under it)
+[1.130s] Copying ../../build/autopatrol_robot/autopatrol_robot.egg-info to /home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/python3.10/site-packages/autopatrol_robot-0.0.0-py3.10.egg-info
+[1.131s] running install_scripts
+[1.144s] Installing patrol_node script to /home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/autopatrol_robot
+[1.144s] Installing speaker script to /home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/autopatrol_robot
+[1.144s] writing list of installed files to '/home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/install.log'
+[1.160s] Invoked command in '/home/nayr/auto_patrol_robot/autopatrol_ws/src/autopatrol_robot' returned '0': PYTHONPATH=/home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/autopatrol_robot build --build-base /home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/build install --record /home/nayr/auto_patrol_robot/autopatrol_ws/build/autopatrol_robot/install.log --single-version-externally-managed install_data

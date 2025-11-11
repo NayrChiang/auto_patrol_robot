@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Ch 6.2.4, 6.2.5, 6.4.4 -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+<!-- Include basic components -->
+<xacro:include filename="$(find robot_description)/urdf/robot/base.urdf.xacro"/>
+<xacro:include filename="$(find robot_description)/urdf/robot/sensor/camera.urdf.xacro"/>
+<xacro:include filename="$(find robot_description)/urdf/robot/sensor/imu.urdf.xacro"/>
+<xacro:include filename="$(find robot_description)/urdf/robot/sensor/laser.urdf.xacro"/>
+<xacro:include filename="$(find robot_description)/urdf/robot/actuator/wheel.urdf.xacro"/>
+<xacro:include filename="$(find robot_description)/urdf/robot/actuator/caster.urdf.xacro"/>
+
+<!-- Include Gazebo Fortress plugins -->
+<xacro:include filename="$(find robot_description)/urdf/robot/plugins/gazebo_control_plugins.xacro"/>
+<xacro:include filename="$(find robot_description)/urdf/robot/plugins/gazebo_sensor_plugins.xacro"/>
+
+<!-- Robot body -->
+<xacro:base_xacro length="0.12" radius="0.10"/>
+
+<!-- Sensors -->
+<xacro:camera_xacro xyz="0.10 0.0 0.075"/>
+<xacro:imu_xacro xyz="0.0 0.0 0.02"/>
+<xacro:laser_xacro xyz="0.0 0.0 0.10"/>
+
+<!-- Actuators -->
+<xacro:wheel_xacro wheel_name="left_wheel" xyz="0.0 0.10 -0.06"/>
+<xacro:wheel_xacro wheel_name="right_wheel" xyz="0.0 -0.10 -0.06"/>
+<xacro:caster_xacro caster_name="front_caster" xyz="0.08 0.0 -0.076"/>
+<xacro:caster_xacro caster_name="back_caster" xyz="-0.08 0.0 -0.076"/>
+
+<!-- Gazebo Fortress plugins -->
+<xacro:gazebo_control_plugin/>
+<xacro:gazebo_sensor_plugin/>
+
+</robot>

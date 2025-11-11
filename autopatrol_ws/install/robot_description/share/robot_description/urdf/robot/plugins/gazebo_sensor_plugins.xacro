@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Fortress/Gazebo Sim sensors: publish on Gazebo Transport topics -->
+  <xacro:macro name="gazebo_sensor_plugin">
+
+    <!-- LIDAR (2D) -->
+    <gazebo reference="laser_link">
+      <sensor name='gpu_lidar' type='gpu_lidar'>
+        <!-- Publish rate & topic -->
+        <update_rate>10</update_rate>
+        <topic>/model/robot/lidar/scan</topic>
+
+        <!-- Give ROS msgs a frame_id (Fortress supports gz_frame_id) -->
+        <gz_frame_id>laser_link</gz_frame_id>
+
+        <!-- Horizontal sweep -->
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.141592653589793</min_angle>
+              <max_angle> 3.141592653589793</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.12</min>
+            <max>8.0</max>
+            <resolution>0.015</resolution>
+          </range>
+          <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </gazebo>
+
+    <gazebo>
+      <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors">
+          <render_engine>ogre</render_engine>
+      </plugin>
+    </gazebo>
+
+    <!-- IMU Sensor -->
+    <gazebo reference="imu_link">
+        <sensor name="imu_sensor" type="imu">
+            <update_rate>100</update_rate>
+            <topic>/model/robot/imu</topic>
+            <gz_frame_id>imu_link</gz_frame_id>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+            </plugin>
+            <imu>
+                <angular_velocity>
+                    <x>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                            <bias_mean>0.0000075</bias_mean>
+                            <bias_stddev>0.0000008</bias_stddev>
+                        </noise>
+                    </x>
+                    <y>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                            <bias_mean>0.0000075</bias_mean>
+                            <bias_stddev>0.0000008</bias_stddev>
+                        </noise>
+                    </y>
+                    <z>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                            <bias_mean>0.0000075</bias_mean>
+                            <bias_stddev>0.0000008</bias_stddev>
+                        </noise>
+                    </z>
+                </angular_velocity>
+                <linear_acceleration>
+                    <x>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                            <bias_mean>0.1</bias_mean>
+                            <bias_stddev>0.001</bias_stddev>
+                        </noise>
+                    </x>
+                    <y>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                            <bias_mean>0.1</bias_mean>
+                            <bias_stddev>0.001</bias_stddev>
+                        </noise>
+                    </y>
+                    <z>
+                        <noise type="gaussian">
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                            <bias_mean>0.1</bias_mean>
+                            <bias_stddev>0.001</bias_stddev>
+                        </noise>
+                    </z>
+                </linear_acceleration>
+            </imu>
+        </sensor>
+    </gazebo>
+
+    <!-- Camera Sensor -->
+    <gazebo reference="camera_link">
+        <sensor name="camera" type="camera">
+            <update_rate>15</update_rate>
+            <topic>/model/robot/camera/image_raw</topic>
+            <gz_frame_id>camera_optical_link</gz_frame_id>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <camera>
+                <horizontal_fov>1.5009831567</horizontal_fov>
+                <image>
+                    <width>800</width>
+                    <height>600</height>
+                    <format>R8G8B8</format>
+                </image>
+                <distortion>
+                    <k1>0.0</k1>
+                    <k2>0.0</k2>
+                    <k3>0.0</k3>
+                    <p1>0.0</p1>
+                    <p2>0.0</p2>
+                    <center>0.5 0.5</center>
+                </distortion>
+            </camera>
+        </sensor>
+    </gazebo>
+
+  </xacro:macro>
+</robot>

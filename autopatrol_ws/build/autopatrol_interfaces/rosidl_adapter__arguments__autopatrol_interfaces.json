@@ -1,0 +1,6 @@
+{
+  "package_name": "autopatrol_interfaces",
+  "non_idl_tuples": [
+    "/home/nayr/auto_patrol_robot/autopatrol_ws/src/autopatrol_interfaces:srv/SpeechText.srv"
+  ]
+}

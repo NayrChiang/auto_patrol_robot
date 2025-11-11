@@ -1,0 +1,23 @@
+{
+    "include": [
+        "autopatrol_ws/src"
+    ],
+    "exclude": [
+        "**/__pycache__",
+        "**/node_modules",
+        "**/build",
+        "**/log"
+    ],
+    "extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/home/nayr/.local/lib/python3.10/site-packages",
+        "/home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_robot/lib/python3.10/site-packages",
+        "/home/nayr/auto_patrol_robot/autopatrol_ws/install/autopatrol_interfaces/local/lib/python3.10/dist-packages"
+    ],
+    "pythonVersion": "3.10",
+    "typeCheckingMode": "basic",
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false
+}
+

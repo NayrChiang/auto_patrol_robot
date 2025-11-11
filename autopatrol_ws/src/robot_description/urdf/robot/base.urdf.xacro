@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- Ch 6.2.4, 6.2.6, 6.3 -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find robot_description)/urdf/robot/common_inertia.xacro"/>
+    <xacro:macro name="base_xacro" params="length radius">
+        <!-- Robot's Body -->
+        <link name="base_link">
+            <!-- Part Description -->
+            <visual>
+                <!-- Origin's Translation and Rotation -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <!-- Geometry -->
+                <geometry>
+                    <cylinder radius="${radius}" length="${length}"/>
+                </geometry>
+                <!-- Material and Color -->
+                <material name="white">
+                    <color rgba="1.0 1.0 1.0 0.8"/>
+                </material>
+            </visual>
+            <collision>
+                <!-- Origin's Translation and Rotation -->
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <!-- Geometry -->
+                <geometry>
+                    <cylinder radius="${radius}" length="${length}"/>
+                </geometry>
+                <!-- Material and Color -->
+                <material name="white">
+                    <color rgba="1.0 1.0 1.0 0.8"/>
+                </material>
+            </collision>
+
+            <xacro:cylinder_inertia m="1.0" r="${radius}" h="${length}"/>
+        </link>
+
+        <link name="base_footprint"/>
+
+        <joint name="base_footprint_joint" type="fixed">
+            <origin xyz="0.0 0.0 ${length/2.0 + 0.032 - 0.001}" rpy="0.0 0.0 0.0"/>
+            <parent link="base_footprint"/>
+            <child link="base_link"/>
+        </joint>
+    </xacro:macro>
+
+    <!-- Gazebo material definitions -->
+    <gazebo reference="base_link">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+</robot>
